@@ -7,59 +7,56 @@ package bardatia;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 /**
  *
  * @author ruhan
  */
 public class BarDaTia {
-
+    
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-        Conta c = new Conta("Ruhan");
-        c.setEmail("ruhan@gmail.com");
-        c.setTelefone("53991733993");
-        c.setSaldoDevedor(18);
-        
-        Conta d = new Conta("Rafaela");
-        d.setEmail("rafaela@gmail.com");
-        d.setTelefone("53984522848");
-        d.setSaldoDevedor(5);
-       
-        Conta e = new Conta("Matheus");
-        e.setEmail("Matheus@gmail.com");
-        e.setTelefone("53984583419");
-        e.setSaldoDevedor(12);
-        
-        Conta f = new Conta("Zandre");
-        f.setEmail("Andre@gmail.com");
-        f.setTelefone("53999999999");
-        f.setSaldoDevedor(11);
-        
-        ArrayList<Conta> lista = new ArrayList();
-        lista.add(c);
-        lista.add(d);
-        lista.add(e);
-        lista.add(f);
+        Scanner sc = new Scanner (System.in);
+        ArrayList<Conta> listaContas = new ArrayList();
+        int opcao;
+        do{
+            System.out.println("Digite a opção desejada:");
+            System.out.println("1 - Cadastrar Conta");
+            System.out.println("2 - Listar Contas");
+            System.out.print("Opcao: ");
+            opcao = Integer.parseInt(sc.nextLine());
+            if (opcao == 1){
+                System.out.println("Cadastrando conta... ");
+                System.out.print("Digite o nome: ");
+                String nome = sc.nextLine();
                 
-        
-        System.out.println("Antes");
-        System.out.println(lista.get(0));
-        System.out.println(lista.get(1));
-        System.out.println(lista.get(2));
-        System.out.println(lista.get(3));
-        
-        
-        Collections.sort(lista);
-        System.out.println("Depois");
-        System.out.println(lista.get(0));
-        System.out.println(lista.get(1));
-        System.out.println(lista.get(2));
-        System.out.println(lista.get(3));
+                System.out.print("Digite o telefone: ");
+                String telefone = sc.nextLine();
+                
+                System.out.print("Digite o e-mail: ");
+                String email = sc.nextLine();
+                
+                Conta c = new Conta(nome);
+                c.setTelefone(telefone);
+                c.setEmail(email);
+                
+                listaContas.add(c);
+            }
+            if (opcao == 2){
+                System.out.println("Listando contas... ");
+                
+                for (int i = 0; i < listaContas.size(); i++) {
+                    System.out.println(listaContas.get(i));
+                }
+                
+            }
+            
+        }while(true);
         
     }
 

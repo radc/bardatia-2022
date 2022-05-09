@@ -23,10 +23,15 @@ public class Conta implements Comparable {
     public int compareTo(Object obj){
         Conta outraConta = (Conta) obj;
         
-        //return this.nome.compareTo(outraConta.getNome());
-        return (-1)*this.nome.compareTo(outraConta.getNome());
+        //return this.nome.compareTo(outraConta.getNome()); //ORDEM ALFABÉTICA
+        //return (-1)*this.nome.compareTo(outraConta.getNome()); //ORDEM ALFABÉTICA INVERSA
         
-        //return this.nome.compareTo(outraConta.nome);
+        if(this.getId() > outraConta.getId()){ //ORDEM PELO ID
+            return 1;
+        }else{
+            return -1;
+        }
+
         
         
         
