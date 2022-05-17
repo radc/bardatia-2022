@@ -51,13 +51,15 @@ public class Conta implements Comparable {
     
     
 
-    public void aumentaDivida(double valor) {
+    public void aumentaDivida(double valor) throws Exception {
         if (valor < 0) { //Testa se valor negativo
-            System.out.println("ERRO : valor negativo");
+            //System.out.println("ERRO : valor negativo");
+            throw new Exception("Aumentando dívida com valor negativo");
         } else {
 
             if (valor + saldoDevedor > maxSaldoDevedor) {
-                System.out.println("ERRO : valor maior que o limite!");
+                //System.out.println("ERRO : valor maior que o limite!");
+                throw new Exception("Tentando aumentar divida acima do limite");
 
             } else {
                 saldoDevedor = saldoDevedor + valor;
