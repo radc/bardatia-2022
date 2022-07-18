@@ -5,6 +5,9 @@
  */
 package bardatia;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -14,13 +17,33 @@ import java.util.Scanner;
  * @author ruhan
  */
 public class BarDaTia {
+    
+    static ArrayList<Conta> listaContas;
+    
+    public static void escreveArquivo(){
+        
+        try{
+        File file = new File("listacontas.obj");
+        ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(file));
+        
+        for (int i = 0; i < listaContas.size(); i++) {
+            //ESCREVER A CONTA NO ARQUIVO listaContas.get(i) no arquivo
+        }
+        
+        }catch(Exception e){
+            
+        }
+        
+        
+        //ObjectInputStream objInput = new ObjectInputStream(new FileInputStream(file));
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Conta> listaContas = new ArrayList();
+        listaContas = new ArrayList();
         int opcao;
         do {
             System.out.println("Digite a opção desejada:");

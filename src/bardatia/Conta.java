@@ -5,11 +5,13 @@
  */
 package bardatia;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ruhan
  */
-public class Conta implements Comparable {
+public class Conta implements Comparable, Serializable {
 
     private String nome;
     private String telefone;
