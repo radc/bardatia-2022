@@ -6,7 +6,9 @@
 package bardatia;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,25 +19,45 @@ import java.util.Scanner;
  * @author ruhan
  */
 public class BarDaTia {
-    
+
     static ArrayList<Conta> listaContas;
-    
-    public static void escreveArquivo(){
-        
-        try{
-        File file = new File("listacontas.obj");
-        ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(file));
-        
-        for (int i = 0; i < listaContas.size(); i++) {
-            //ESCREVER A CONTA NO ARQUIVO listaContas.get(i) no arquivo
+
+    public static void escreveArquivo() {
+        try {
+            File file = new File("listacontas.obj");
+            ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(file));
+
+            for (int i = 0; i < listaContas.size(); i++) {
+                objOutput.writeObject(listaContas.get(i));
+            }
+            objOutput.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        
-        }catch(Exception e){
+
+        //
+    }
+
+    public static void leArquivo() {
+        try {
+            File file = new File("listacontas.obj");
+            ObjectInputStream objInput = new ObjectInputStream(new FileInputStream(file));
+
+            Conta b;
+            b = (Conta) objInput.readObject();
             
+            while(b != null){
+                listaContas.add(b);
+                b = (Conta) objInput.readObject();
+            }
+            
+            objInput.close();
+
+        } catch (Exception e) {
+
         }
-        
-        
-        //ObjectInputStream objInput = new ObjectInputStream(new FileInputStream(file));
+
     }
 
     /**
@@ -44,6 +66,7 @@ public class BarDaTia {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         listaContas = new ArrayList();
+        leArquivo();
         int opcao;
         do {
             System.out.println("Digite a opção desejada:");
@@ -68,6 +91,7 @@ public class BarDaTia {
                 c.setEmail(email);
 
                 listaContas.add(c);
+                escreveArquivo();
             }
             if (opcao == 2) {
                 System.out.println("Listando contas... ");
@@ -103,7 +127,8 @@ public class BarDaTia {
                     }
 
                 }
-                if (i == listaContas.size()){
+                escreveArquivo();
+                if (i == listaContas.size()) {
                     System.out.println("Você não existe na Matrix");
                 }
             }
