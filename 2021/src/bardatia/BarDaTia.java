@@ -46,17 +46,20 @@ public class BarDaTia {
 
             Conta b;
             b = (Conta) objInput.readObject();
-            
-            while(b != null){
+
+            while (b != null) {
                 listaContas.add(b);
                 b = (Conta) objInput.readObject();
             }
-            
+
             objInput.close();
 
         } catch (Exception e) {
-
+            //System.out.println("Excecao");
         }
+
+        //System.out.println(listaContas.size());
+        Conta.setTotalContas(listaContas.size());
 
     }
 

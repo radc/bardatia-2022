@@ -21,6 +21,12 @@ public class Conta implements Comparable, Serializable {
 
     private static int totalContas = 0;
     private static double maxSaldoDevedor = 20;
+    
+    
+    public static void setTotalContas(int total){
+        totalContas = total;
+    }
+    
 
     public int compareTo(Object obj){
         Conta outraConta = (Conta) obj;
@@ -148,9 +154,7 @@ public class Conta implements Comparable, Serializable {
         return id;
     }
 
-    public static void setTotalContas(int valor) {
-                
-    }
+   
 
     public void teste1() {
         System.out.println(totalContas);
