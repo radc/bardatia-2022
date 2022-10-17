@@ -15,25 +15,11 @@ public class BarDaTia2022 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Conta maria;       
-        Conta joao;
+        Conta c1 = new Conta();
+        System.out.println(c1);
         
-        maria = new Conta();
-        joao = new Conta();
-        
-        maria.id = 1;
-        maria.nome = "Maria";
-        maria.email = "donamaria@bol.com.br";
-        maria.telefone = "53981900970";
-        maria.servidor = true;
-        maria.saldoDevedor = 0.0;
-        
-        joao.nome = "Joao";
-        joao.nome = "Pedro";
-        joao.nome = "Mateus";
-        
-        System.out.println(joao);
-        System.out.println(maria);
+        Conta c2 = new Conta("Ruhan","53991733993","ruhan@gmail.com",true);
+        System.out.println(c2);
     }
     
 }
