@@ -17,6 +17,11 @@ public class Conta {
     double saldoDevedor;
     boolean servidor;
 
+    @Override
+    public String toString() {
+        return "Conta{" + "id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", saldoDevedor=" + saldoDevedor + ", servidor=" + servidor + '}';
+    }
+
    
     
     
