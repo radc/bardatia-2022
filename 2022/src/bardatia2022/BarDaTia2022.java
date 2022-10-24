@@ -19,7 +19,13 @@ public class BarDaTia2022 {
         System.out.println(c1);
         
         Conta c2 = new Conta("Ruhan","53991733993","ruhan@gmail.com",true);
-        System.out.println(c2);
+        
+        c2.incrementaSaldoDevedor();
+        System.out.println(c2.getSaldoDevedor());
+        c2.incrementaSaldoDevedor();
+        c2.incrementaSaldoDevedor();
+        c2.incrementaSaldoDevedor();
+        System.out.println(c2.getSaldoDevedor());
     }
     
 }

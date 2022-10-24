@@ -16,7 +16,7 @@ public class Conta {
     String nome;
     String telefone;
     String email;
-    double saldoDevedor;
+    private double saldoDevedor;
     boolean servidor;
     LocalDate dataCriacaoConta;
 
@@ -40,7 +40,13 @@ public class Conta {
         dataCriacaoConta = LocalDate.now();
     }
 
+   public void incrementaSaldoDevedor(){
+       saldoDevedor = saldoDevedor + 1;
+   }
    
+   public double getSaldoDevedor(){
+       return saldoDevedor;
+   }
     
     
 }
