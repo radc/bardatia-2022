@@ -12,13 +12,13 @@ import java.time.LocalDate;
  * @author ruhan
  */
 public class Conta {
-    int id;
-    String nome;
-    String telefone;
-    String email;
+    private int id;
+    private String nome;
+    private String telefone;
+    private String email;
     private double saldoDevedor;
-    boolean servidor;
-    LocalDate dataCriacaoConta;
+    private boolean servidor;
+    private LocalDate dataCriacaoConta;
 
     @Override
     public String toString() {
@@ -44,9 +44,28 @@ public class Conta {
        saldoDevedor = saldoDevedor + 1;
    }
    
+   public void incSaldoDevedorValor(double valor){
+       saldoDevedor = saldoDevedor + valor;
+   }
+   
+   public void decrementaSaldoDevedor(){
+       saldoDevedor = saldoDevedor - 1;
+   }
+   
+   public void setSaldoDevedor(double valor){
+       saldoDevedor = valor;
+   }
+   
    public double getSaldoDevedor(){
        return saldoDevedor;
    }
     
-    
+   public int getId(){
+       return id;
+   }
+   
+   public void setId(int id){
+       this.id = id;
+   }
+   
 }

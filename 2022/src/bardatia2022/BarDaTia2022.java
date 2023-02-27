@@ -25,6 +25,8 @@ public class BarDaTia2022 {
         c2.incrementaSaldoDevedor();
         c2.incrementaSaldoDevedor();
         c2.incrementaSaldoDevedor();
+        c2.setSaldoDevedor(7.5);
+        c2.incSaldoDevedorValor(5);
         System.out.println(c2.getSaldoDevedor());
     }
     
