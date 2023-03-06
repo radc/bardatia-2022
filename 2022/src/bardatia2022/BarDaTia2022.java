@@ -5,29 +5,52 @@
  */
 package bardatia2022;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+
 /**
  *
  * @author ruhan
  */
 public class BarDaTia2022 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Conta c1 = new Conta();
-        System.out.println(c1);
-        
-        Conta c2 = new Conta("Ruhan","53991733993","ruhan@gmail.com",true);
-        
-        c2.incrementaSaldoDevedor();
-        System.out.println(c2.getSaldoDevedor());
-        c2.incrementaSaldoDevedor();
-        c2.incrementaSaldoDevedor();
-        c2.incrementaSaldoDevedor();
-        c2.setSaldoDevedor(7.5);
-        c2.incSaldoDevedorValor(5);
-        System.out.println(c2.getSaldoDevedor());
-    }
+    static ArrayList<Conta> listaContas;
     
+    public static void main(String[] args) {
+        listaContas = new ArrayList();        
+        int opcao;
+        Scanner sc = new Scanner(System.in);
+        
+        do{
+            System.out.println("1 - Cadastrar Conta");
+            System.out.println("2 - Listar Contas");
+            System.out.println("0 - Sair");                        
+            System.out.print("Opção: ");
+            opcao = Integer.parseInt(sc.nextLine());   
+            
+            if(opcao == 1){ // Cadastrar Conta
+                System.out.print("Digite o nome da conta: ");
+                String nome = sc.nextLine();
+                
+                System.out.print("Digite telefone: ");
+                String telefone = sc.nextLine();
+                
+                System.out.print("Digite e-mail: ");
+                String email = sc.nextLine();
+                
+                System.out.println("Servidor? (sim/não)");
+                boolean servidor = sc.nextLine()
+                        .toLowerCase()
+                        .contains("s");
+                
+                
+            }
+            if(opcao == 2){ // Listar Contas
+                
+            }
+            
+        }while(opcao != 0);     
+    }    
 }
