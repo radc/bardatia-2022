@@ -26,6 +26,8 @@ public class BarDaTia2022 {
         do{
             System.out.println("1 - Cadastrar Conta");
             System.out.println("2 - Listar Contas");
+            System.out.println("3 - Alterar Conta");
+            System.out.println("4 - Excluir Conta");
             System.out.println("0 - Sair");                        
             System.out.print("Opção: ");
             opcao = Integer.parseInt(sc.nextLine());   
@@ -45,10 +47,27 @@ public class BarDaTia2022 {
                         .toLowerCase()
                         .contains("s");
                 
-                
+                Conta c = new Conta(nome,telefone,email,servidor);
+                listaContas.add(c);
+                //System.out.println(listaContas.size());
             }
             if(opcao == 2){ // Listar Contas
-                
+                for(int i = 0; i < listaContas.size(); i++){
+                    Conta c = listaContas.get(i);
+                    System.out.println(c);
+                }
+            }
+            if(opcao == 4){ // Excluir Conta
+                System.out.print("Digite o ID da Conta para Excluir: ");
+                int id = Integer.parseInt(sc.nextLine()); 
+                Conta c = null;
+                for(int i = 0; i < listaContas.size(); i++){
+                    c = listaContas.get(i);
+                    if(c.getId() == id){
+                        listaContas.remove(c);
+                        break;
+                    }          
+                }
             }
             
         }while(opcao != 0);     
