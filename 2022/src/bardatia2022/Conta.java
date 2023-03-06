@@ -20,13 +20,38 @@ public class Conta {
     private boolean servidor;
     private LocalDate dataCriacaoConta;
 
+    private static int numContas = 0;
+    private static double servidorMaxDivida = 50;
+    private static double alunoMaxDivida = 20;
+    
     @Override
     public String toString() {
+        
         return "Conta{" + "id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", saldoDevedor=" + saldoDevedor + ", servidor=" + servidor + ", dataCriacaoConta=" + dataCriacaoConta + '}';
     }
 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Conta other = (Conta) obj;
+        return this.id == other.id;
+    }
+
+    
+    
     public Conta(String nome, String telefone, String email, 
             boolean servidor){
+        numContas++;
+        this.id = numContas;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -36,6 +61,8 @@ public class Conta {
     }
     
     public Conta(){
+        numContas++;
+        this.id = numContas;
         saldoDevedor = 2;
         dataCriacaoConta = LocalDate.now();
     }
@@ -45,7 +72,20 @@ public class Conta {
    }
    
    public void incSaldoDevedorValor(double valor){
-       saldoDevedor = saldoDevedor + valor;
+       
+       if(valor + this.saldoDevedor <= alunoMaxDivida){
+            saldoDevedor = saldoDevedor + valor;
+       }else{
+           System.out.println("Não pode dever mais que: " + alunoMaxDivida);
+       }
+   }
+   public void decSaldoDevedorValor(double valor){
+       
+       if( saldoDevedor >= valor ){
+            saldoDevedor = saldoDevedor - valor;
+       }else{
+           System.out.println("Não pode dever menos que ZERO");
+       }
    }
    
    public void decrementaSaldoDevedor(){
